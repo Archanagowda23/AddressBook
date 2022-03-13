@@ -34,8 +34,7 @@ public class AddressBookMain {
         details.setPhoneNumber(scanner.nextInt());
 
         Book.add(details);
-
-        System.out.println(Book);
+        viewAllBooks();
     }
 
     /*
@@ -172,7 +171,7 @@ public class AddressBookMain {
                                 break;
                         }
                         hashmap.put(address_name, Book);
-                        System.out.println(hashmap);
+                        viewMap();
                     }
                     break;
 
@@ -196,7 +195,8 @@ public class AddressBookMain {
                             }
                             switch (choose2) {
                                 case 1:
-                                    Details.addDetails();addDetails();
+                                    Details.addDetails();
+                                    addDetails();
                                     break;
                                 case 2:
                                     Details.editDetails();
@@ -209,8 +209,8 @@ public class AddressBookMain {
                                     break;
                             }
                             hashmap.put(address_name_old, Book);
-                            System.out.println(hashmap);
-                            System.out.println( );
+                            viewMap();
+
                         }
                     } else {
                         System.out.println("Enter valid address book name");
@@ -218,7 +218,7 @@ public class AddressBookMain {
                     break;
 
                 case 3:
-                    System.out.println(hashmap);
+                    viewMap();
                     break;
 
                 default:
@@ -226,6 +226,15 @@ public class AddressBookMain {
 
             }
         }
+    }
+        public void viewAllBooks () {
+            for (Contacts book : Book) {
+                System.out.println(book);
+            }
+        }
+    public void viewMap(){
+        for (String name: hashmap.keySet()) { String key = name;
+            String value = hashmap.get(name).toString(); System.out.println(key + " " + value); }
     }
 
     public static void main(String[] args) {
